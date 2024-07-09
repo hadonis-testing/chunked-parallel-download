@@ -10,14 +10,15 @@ int get_content_length(httplib::Client& cli, const std::string& file_name)
 
 int main(int argc, char* argv[])
 {
-    if (argc != 2)
+    if (argc != 3)
     {
-        std::cout << "Usage: " << argv[0] << " <file_name>" << std::endl;
+        std::cout << "Usage: client.exe <file name> <number of chunk>" << std::endl;
 
         return EXIT_FAILURE;
     }
 
     const std::string file_name = argv[1];
+    const int number_of_chunk = std::atoi(argv[2]);
 
     httplib::Client cli("localhost", 8080);
 
