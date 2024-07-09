@@ -100,6 +100,8 @@ void handle_get_download(const httplib::Request& req, httplib::Response& res)
         file.read(buffer.data(), content_length);
         res.set_content(buffer.data(), buffer.size(), "application/octet-stream");
 
+        std::cout << "Content-Range: " << start << "-" << end << std::endl;
+
         file.close();
     }
 }
